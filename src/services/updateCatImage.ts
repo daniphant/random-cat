@@ -9,7 +9,7 @@ export const getCurrentCatImage = (): CatImage | null => {
 
 export const updateCatImage = async () => {
   try {
-    const response = await apiClient.get("/images/search");
+    const response = await apiClient.get("/images/search?mime_types=jpg,png");
     currentCatImage = response.data[0] as CatImage;
     console.info(`Updated cat image: ${currentCatImage.url}`);
   } catch (error) {
